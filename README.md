@@ -4,15 +4,16 @@
 
 Ce projet est une API simple construite avec Express.js. Il fournit des points de terminaison pour accéder à une liste d'éléments à partir d'un fichier JSON. L'API gère également les requêtes CORS et le traitement des données envoyées par le client.
 
+Dans cette version, le pattern MVC à été implémenté.
+
 ## Version
 
-1.1.0
+1.2.0
 
 ## Technologies Utilisées
 
 - **Node.js** : Environnement d'exécution pour JavaScript côté serveur.
 - **Express.js** : Framework web pour Node.js, facilitant la création d'applications web et d'APIs.
-- ~~**Body-parser** : Middleware pour analyser le corps des requêtes HTTP.~~ (supprimer depuis express version 4.16)
 - **Next** : Framework React pour le rendu côté serveur et les fonctionnalités frontend.
 - **React et react-dom** : Bibliothèque et moteur de rendu pour les interfaces utilisateur.
 - **CORS** : Middleware pour gérer les requêtes entre différents domaines.
