@@ -4,6 +4,8 @@
 
 Ce projet est une API simple construite avec Express.js. Il fournit des points de terminaison pour accéder à une liste d'éléments à partir d'un fichier JSON. L'API gère également les requêtes CORS et le traitement des données envoyées par le client.
 
+Dans cette version, NextJS à été implémenté.
+
 ## Version
 
 1.1.0
