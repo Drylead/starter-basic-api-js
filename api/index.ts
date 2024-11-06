@@ -1,46 +1,56 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
-const bodyParser = require('body-parser');
+const next = require('next');
+
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
+
 const Datas = require('./datas.json');
+const PORT = process.env.PORT || 3000;
 
-const corsOptions = {
-    origin: ['*'],
-    optionsSuccessStatus: 200,
-};
+app.prepare().then(() => {
+    const server = express();
 
-app.use(cors(corsOptions));
-app.use(
-    bodyParser.urlencoded({
-        extended: true,
-    })
-);
+    const corsOptions = {
+        origin: ['*'],
+        optionsSuccessStatus: 200,
+    };
 
-app.get('/', (req, res) => {
-    return res.send('hello world');
+    server.use(cors(corsOptions));
+
+    server.use(express.json());
+    server.use(express.urlencoded({ extended: true }));
+
+    // Point de terminaison racine
+    server.get('/', (req, res) => {
+        res.send('Hello world');
+    });
+    // Point de terminaison pour récupérer tous les éléments
+    server.get('/items', (req, res) => {
+        if (!Datas || Datas.length === 0) {
+            return res.status(500).json({ message: 'Erreur technique' });
+        }
+        res.json(Datas);
+    });
+
+
+    // Point de terminaison pour récupérer un élément spécifique par son identifiant
+    server.get('/items/:id([0-9]+)', (req, res) => {
+        const id = parseInt(req.params.id, 10);
+        if (isNaN(id)) {
+            return res.status(400).json({ message: 'Identifiant invalide' });
+        }
+        const item = Datas.find(data => data.id === id);
+        if (!item) {
+            return res.status(404).json({ message: 'Élément non trouvé' });
+        }
+        res.json(item);
+    });
+
+    server.listen(PORT, (err) => {
+        if (err) throw err;
+        console.log(`🚀 Server ready at: http://localhost:${PORT} ⭐️`);
+    });
 });
 
-app.get('/items', (req, res) => {
-    if (Datas && Datas?.length <= 0) {
-        return res.send({ message: 'Erreur technique' });
-    }
-    return res.send(Datas);
-});
-
-app.get('/items/:id([0-9]+)', (req, res) => {
-    const id = parseInt(req.params.id);
-
-    if (Datas && Datas?.length <= 0) {
-        return res.send({ message: 'Erreur technique' });
-    }
-
-    if (!id && id <= 0) {
-        return res.send({ message: 'Erreur technique' });
-    }
-
-    return res.send(Datas?.filter((data) => data.id === id));
-});
-
-app.listen(3000, () => console.log(`🚀 Server ready at: 3000 ⭐️`))
-
-module.exports = app;

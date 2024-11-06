@@ -1,4 +1,4 @@
-# Express API Project
+# Express API Project with NextJS
 
 ## Description
 
@@ -6,13 +6,15 @@ Ce projet est une API simple construite avec Express.js. Il fournit des points d
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Technologies Utilisées
 
 - **Node.js** : Environnement d'exécution pour JavaScript côté serveur.
 - **Express.js** : Framework web pour Node.js, facilitant la création d'applications web et d'APIs.
-- **Body-parser** : Middleware pour analyser le corps des requêtes HTTP.
+- ~~**Body-parser** : Middleware pour analyser le corps des requêtes HTTP.~~ (supprimer depuis express version 4.16)
+- **Next** : Framework React pour le rendu côté serveur et les fonctionnalités frontend.
+- **React et react-dom** : Bibliothèque et moteur de rendu pour les interfaces utilisateur.
 - **CORS** : Middleware pour gérer les requêtes entre différents domaines.
 
 ## Installation
@@ -30,7 +32,8 @@ Pour installer le projet, assurez-vous d'avoir Node.js installé sur votre machi
 
    ```bash
    npm install or yarn install
-   npm start or yarn start
+   npm run dev or yarn dev (version développement)
+   npm start or yarn start (version production)
    ```
 
 ## Terminaison API
