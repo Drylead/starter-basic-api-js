@@ -6,14 +6,14 @@ Ce projet est une API simple construite avec Express.js. Il fournit des points d
 
 ## Version
 
-1.0.0
+-   1.0.0
+-   1.1.0
 
 ## Technologies Utilisées
 
-- **Node.js** : Environnement d'exécution pour JavaScript côté serveur.
-- **Express.js** : Framework web pour Node.js, facilitant la création d'applications web et d'APIs.
-- **Body-parser** : Middleware pour analyser le corps des requêtes HTTP.
-- **CORS** : Middleware pour gérer les requêtes entre différents domaines.
+-   **Node.js** : Environnement d'exécution pour JavaScript côté serveur.
+-   **Express.js** : Framework web pour Node.js, facilitant la création d'applications web et d'APIs.
+-   **CORS** : Middleware pour gérer les requêtes entre différents domaines.
 
 ## Installation
 
@@ -21,45 +21,56 @@ Pour installer le projet, assurez-vous d'avoir Node.js installé sur votre machi
 
 1. Clonez le dépôt :
 
-   ```bash
-   git clone https://github.com/Drylead/starter-basic-api-js
-   cd starter-basic-api-js
-   ```
+    ```bash
+    git clone https://github.com/Drylead/starter-basic-api-js
+    cd starter-basic-api-js
+    ```
 
 2. Installer le projet
 
-   ```bash
-   npm install or yarn install
-   npm start or yarn start
-   ```
+    ```bash
+    npm install or yarn install
+    npm run dev or yarn dev
+    ```
 
 ## Terminaison API
 
-GET /
+#### Get root path
 
-    • Retourne un message de bienvenue.
-    • Réponse : hello world
+```http
+  GET /
+```
 
-GET /items
+| Parameter | Type   | Description            |
+| :-------- | :----- | :--------------------- |
+| `none`    | `none` | Return welcome message |
 
-    • Retourne la liste de tous les éléments présents dans le fichier datas.json.
-    • Réponse : Liste des éléments ou message d’erreur si aucun élément n’est trouvé.
+#### Get all items
 
-GET /items/:id
+```http
+  GET /api/items
+```
 
-    • Retourne un élément spécifique par son identifiant.
+| Parameter | Type   | Description      |
+| :-------- | :----- | :--------------- |
+| `none`    | `none` | Return all items |
 
-Paramètres :
+#### Get item
 
-    • id: L’identifiant numérique de l’élément à récupérer.
-    • Réponse : Détails de l’élément ou message d’erreur si l’identifiant n’est pas valide ou si aucun élément n’est trouvé.
+```http
+  GET /api/items/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
 
 ## Contact Us
 
-- Email Us: help@drylead.agency
-- [Follow us on Linkedin](https://www.linkedin.com/company/drylead)
-- [Follow us on Instagram](https://www.instagram.com/drylead/)
-- [Follow us on Facebook](https://facebook.com/drylead/)
+-   Email Us: help@drylead.agency
+-   [Follow us on Linkedin](https://www.linkedin.com/company/drylead)
+-   [Follow us on Instagram](https://www.instagram.com/drylead/)
+-   [Follow us on Facebook](https://facebook.com/drylead/)
 
 ## License
 
