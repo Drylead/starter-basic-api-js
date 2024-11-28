@@ -30,7 +30,7 @@ Pour installer le projet, assurez-vous d'avoir Node.js installé sur votre machi
 
     ```bash
     npm install or yarn install
-    npm start or yarn start
+    npm run dev or yarn dev
     ```
 
 ## Terminaison API
@@ -48,7 +48,7 @@ Pour installer le projet, assurez-vous d'avoir Node.js installé sur votre machi
 #### Get all items
 
 ```http
-  GET /items
+  GET /api/items
 ```
 
 | Parameter | Type   | Description      |
